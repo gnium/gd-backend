@@ -1,0 +1,8 @@
+# No ignorar el archivo .gitignore
+!.gitignore
+
+# No ignorar las carpetas
+!default-profile-pictures/
+
+# No ignorar los archivos dentro de las carpetas
+!default-profile-pictures/*

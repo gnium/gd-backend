@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg94"
+   viewBox="0 0 18.32 18.32"
+   style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+   version="1.1"
+   height="119px"
+   width="119px"
+   xml:space="preserve"><metadata
+   id="metadata98"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata>
+ <defs
+   id="defs57">
+  <style
+   id="style55"
+   type="text/css">
+   <![CDATA[
+    .fil0 {fill:#022D79}
+    .fil2 {fill:#77C7D4}
+    .fil4 {fill:#7884B4}
+    .fil3 {fill:#D8A1D8}
+    .fil1 {fill:#EFF1E8}
+   ]]>
+  </style>
+ </defs>
+ <g
+   id="Contenido_x0020_de_x0020_PowerClip">
+  <metadata
+   id="CorelCorpID_0Corel-Layer" />
+  <g
+   id="_1439932766512">
+   <rect
+   id="rect60"
+   height="18.32"
+   width="18.32"
+   class="fil0" />
+   <polygon
+   id="polygon62"
+   points="6.11,11.1 3.64,14.25 5.46,18.32 8.41,18.32 12.56,16.3 11.86,14.75 9.16,9.64 "
+   class="fil1" />
+   <path
+   id="path64"
+   d="M8.24 9.34l3.24 5.56 5.48 -3.26 -1.61 -2.8c-0.32,-0.56 -1.27,-2.32 -1.62,-2.68 -2.12,1.17 -3.5,2.08 -5.49,3.18z"
+   class="fil2" />
+   <polygon
+   id="polygon66"
+   points="6.7,3.22 5.49,4.53 10.09,8.97 14.67,4.4 10.32,0 9.8,0 "
+   class="fil3" />
+   <polygon
+   id="polygon68"
+   points="11.1,4.6 18.32,3 18.32,2.76 15.76,0 12.5,0 "
+   class="fil1" />
+   <path
+   id="path70"
+   d="M4.13 2.56l0.01 7.45 7.26 -4.33 -6.34 -3.87c-2.25,-0.08 -0.61,0.36 -0.93,0.75z"
+   class="fil2" />
+   <polygon
+   id="polygon72"
+   points="13.34,16.32 16.06,18.32 18.32,18.32 18.32,13.53 16.14,12.18 "
+   class="fil4" />
+   <polygon
+   id="polygon74"
+   points="5.79,1.3 8.23,0 5.51,0 5.74,0.62 3.92,0 0.48,0 1.59,5.09 "
+   class="fil1" />
+   <polygon
+   id="polygon76"
+   points="0,8.6 0,9.34 3.95,7.16 0,4.66 "
+   class="fil2" />
+   <polygon
+   id="polygon78"
+   points="0,11.64 1.07,14.15 1.72,15.63 2.25,16.77 7.69,9.51 5.41,9.23 4.17,9.07 1.13,8.71 0,8.6 "
+   class="fil3" />
+   <polygon
+   id="polygon80"
+   points="18.32,9.36 18.32,4.6 16.53,3.51 16.26,10.3 "
+   class="fil2" />
+   <polygon
+   id="polygon82"
+   points="0,18.32 0.08,18.32 1.72,15.63 1.07,14.15 0,13.58 "
+   class="fil4" />
+   <polygon
+   id="polygon84"
+   points="12.53,18.32 15.68,18.32 13.3,15.77 "
+   class="fil1" />
+   <polygon
+   id="polygon86"
+   points="17.53,9.72 18.32,11.44 18.32,8.58 17.01,8.45 "
+   class="fil3" />
+   <polygon
+   id="polygon88"
+   points="0.37,17.89 0.46,18.32 3.66,18.32 0.72,17.39 0.24,17.23 "
+   class="fil1" />
+   <path
+   id="path90"
+   d="M18.32 0.16l0 -0.16 -2.12 0 1.56 0.98c0.15,-0.17 0.14,-0.19 0.25,-0.37l0.18 -0.29c0.01,-0.01 0.03,-0.04 0.04,-0.05l0.09 -0.11z"
+   class="fil4" />
+  </g>
+ </g>
+</svg>
