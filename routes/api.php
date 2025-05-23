@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CJController;
+use App\Http\Controllers\SalesController;
 
+// Public routes
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
@@ -21,9 +24,22 @@ foreach ($modules as $module) {
     }
 }
 
+// Protected routes
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('users', [UserController::class, 'index']);
+    Route::post('users', [UserController::class, 'store'])->middleware('admin');
+    Route::put('users/me', [UserController::class, 'updateMyUser']);
+    Route::put('users/{user}', [UserController::class, 'update'])->middleware('admin');
+    Route::post('users/hubspot-update', [UserController::class, 'updateByHubspot']);
+    
+    // Sales routes
+    Route::apiResource('sales', SalesController::class);
+
+    // CJ routes
+    Route::get('cj/get-commissions', [CJController::class, 'getCommissionDetails'])
+        ->where('publisher_id', '[0-9]+');
 });
+
 Route::get('/api-docs', function () {
     return collect(Route::getRoutes())
         ->map(function ($route) {

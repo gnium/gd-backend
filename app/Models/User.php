@@ -25,6 +25,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'company',
+        'website',
+        'deal_stage',
+        'publisher_id',
+        'is_active',
+        'profile_picture_path'
     ];
 
     /**
@@ -51,6 +57,9 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'company' => 'string',
+            'website' => 'string',
+            'is_active' => 'boolean'
         ];
     }
 
@@ -65,6 +74,17 @@ class User extends Authenticatable
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class, 'role_user')->with('navigationItems');
+    }
+
+    /**
+     * Check if the user has a specific role.
+     *
+     * @param string $roleName
+     * @return bool
+     */
+    public function hasRole(string $roleName): bool
+    {
+        return $this->roles()->where('name', $roleName)->exists();
     }
 
     public function getProfilePictureUrlAttribute()

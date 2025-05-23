@@ -1,0 +1,492 @@
+{
+  "info": {
+    "name": "User Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/login",
+          "host": ["{{base_url}}"],
+          "path": ["login"]
+        }
+      },
+      "response": [
+        {
+          "name": "Example Response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": ["{{base_url}}"],
+              "path": ["login"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get All Users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/users",
+          "host": ["{{base_url}}"],
+          "path": ["users"]
+        }
+      },
+      "response": [
+        {
+          "name": "Example Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": ["{{base_url}}"],
+              "path": ["users"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "data": [
+              {
+                "id": 1,
+                "name": "John Doe",
+                "email": "john@example.com",
+                "company": "Example Corp",
+                "deal_stage": "Lead",
+                "publisher_id": 123,
+                "is_active": true,
+                "created_at": "2023-01-01T00:00:00.000000Z",
+                "updated_at": "2023-01-01T00:00:00.000000Z"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Create User (Admin Only)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\",\n  \"password\": \"password123\",\n  \"company\": \"Jane Corp\",\n  \"deal_stage\": \"Prospect\",\n  \"publisher_id\": 456\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/users",
+          "host": ["{{base_url}}"],
+          "path": ["users"]
+        }
+      },
+      "response": [
+        {
+          "name": "Example Response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\",\n  \"password\": \"password123\",\n  \"company\": \"Jane Corp\",\n  \"deal_stage\": \"Prospect\",\n  \"publisher_id\": 456\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": ["{{base_url}}"],
+              "path": ["users"]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "data": {
+              "id": 2,
+              "name": "Jane Doe",
+              "email": "jane@example.com",
+              "company": "Jane Corp",
+              "deal_stage": "Prospect",
+              "publisher_id": 456,
+              "is_active": true,
+              "created_at": "2023-01-02T00:00:00.000000Z",
+              "updated_at": "2023-01-02T00:00:00.000000Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Update User (Admin Only)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Updated\",\n  \"company\": \"Updated Corp\",\n  \"deal_stage\": \"Customer\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/users/1",
+          "host": ["{{base_url}}"],
+          "path": ["users", "1"]
+        }
+      },
+      "response": [
+        {
+          "name": "Example Response",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Updated\",\n  \"company\": \"Updated Corp\",\n  \"deal_stage\": \"Customer\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users/1",
+              "host": ["{{base_url}}"],
+              "path": ["users", "1"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "data": {
+              "id": 1,
+              "name": "John Updated",
+              "email": "john@example.com",
+              "company": "Updated Corp",
+              "deal_stage": "Customer",
+              "publisher_id": 123,
+              "is_active": true,
+              "created_at": "2023-01-01T00:00:00.000000Z",
+              "updated_at": "2023-01-03T00:00:00.000000Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Update User by HubSpot",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-HubSpot-Token",
+            "value": "{{hubspot_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"john@example.com\",\n  \"name\": \"John HubSpot\",\n  \"company\": \"HubSpot Corp\",\n  \"deal_stage\": \"Lead\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/users/hubspot-update",
+          "host": ["{{base_url}}"],
+          "path": ["users", "hubspot-update"]
+        }
+      },
+      "response": [
+        {
+          "name": "Example Response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-HubSpot-Token",
+                "value": "{{hubspot_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"name\": \"John HubSpot\",\n  \"company\": \"HubSpot Corp\",\n  \"deal_stage\": \"Lead\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users/hubspot-update",
+              "host": ["{{base_url}}"],
+              "path": ["users", "hubspot-update"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "data": {
+              "id": 1,
+              "name": "John HubSpot",
+              "email": "john@example.com",
+              "company": "HubSpot Corp",
+              "deal_stage": "Lead",
+              "publisher_id": 123,
+              "is_active": true,
+              "created_at": "2023-01-01T00:00:00.000000Z",
+              "updated_at": "2023-01-04T00:00:00.000000Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Commission Details",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/cj/commissions?requestor-cid=4567",
+          "host": ["{{base_url}}"],
+          "path": ["cj", "commissions"],
+          "query": [
+            {
+              "key": "requestor-cid",
+              "value": "4567"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Example Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cj/commissions?requestor-cid=4567",
+              "host": ["{{base_url}}"],
+              "path": ["cj", "commissions"],
+              "query": [
+                {
+                  "key": "requestor-cid",
+                  "value": "4567"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "commissionsContent": "...",
+            "totalPaid": 1000,
+            "paidThisMonth": 100,
+            "pendingCommissions": 50,
+            "currentCommissionRate": 5
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Commission Details (Admin Only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/cj/commissions/admin",
+          "host": ["{{base_url}}"],
+          "path": ["cj", "commissions", "admin"]
+        }
+      },
+      "response": [
+        {
+          "name": "Example Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cj/commissions/admin",
+              "host": ["{{base_url}}"],
+              "path": ["cj", "commissions", "admin"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "commissionsContent": "...",
+            "totalPaid": 2000,
+            "paidThisMonth": 200,
+            "pendingCommissions": 100,
+            "currentCommissionRate": 10
+          }
+        }
+      ]
+    }
+  ]
+} 
