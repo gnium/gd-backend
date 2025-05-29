@@ -12,6 +12,7 @@ use App\Http\Controllers\SalesController;
 // Public routes
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('users/hubspot-update', [UserController::class, 'updateByHubspot']);
 
 // Add module routes
 $modulePath = base_path('modules');
@@ -30,7 +31,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('users', [UserController::class, 'store'])->middleware('admin');
     Route::put('users/me', [UserController::class, 'updateMyUser']);
     Route::put('users/{user}', [UserController::class, 'update'])->middleware('admin');
-    Route::post('users/hubspot-update', [UserController::class, 'updateByHubspot']);
     
     // Sales routes
     Route::apiResource('sales', SalesController::class);
