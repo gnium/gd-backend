@@ -69,11 +69,13 @@ class UserController extends Controller
 
     public function updateByHubspot(Request $request)
     {
-        
         if ($request->header('X-HubSpot-Token') !== config('services.hubspot.token')) {
+            \Log::warning('Invalid HubSpot token received', [
+                'token' => $request->header('X-HubSpot-Token'),
+                'ip' => $request->ip()
+            ]);
             return response()->json(['error' => 'Invalid token'], 401);
         }
-        return response()->json(['data'=>$request->header('X-HubSpot-Token')]);
 
         $request->validate([
             'email' => 'required|email',
@@ -82,13 +84,34 @@ class UserController extends Controller
             'deal_stage' => 'nullable|string',
         ]);
 
-        $user = User::where('email', $request->email)->firstOrFail();
-        $user->update([
-            'name' => $request->name,
-            'company' => $request->company,
-            'deal_stage' => $request->deal_stage,
-        ]);
-        return response()->json(['data' => $user]);
+        try {
+            $user = User::where('email', $request->email)->firstOrFail();
+            
+            \Log::info('Updating user from HubSpot', [
+                'email' => $request->email,
+                'name' => $request->name,
+                'company' => $request->company,
+                'deal_stage' => $request->deal_stage
+            ]);
+
+            $user->update([
+                'name' => $request->name,
+                'company' => $request->company,
+                'deal_stage' => $request->deal_stage,
+            ]);
+            
+            return response()->json(['data' => $user]);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            \Log::warning('User not found in HubSpot update', [
+                'email' => $request->email,
+                'request_data' => $request->all()
+            ]);
+            
+            return response()->json([
+                'error' => 'User not found',
+                'message' => 'No user found with the provided email address'
+            ], 404);
+        }
     }
 
     public function updateMyUser(Request $request)
