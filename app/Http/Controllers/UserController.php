@@ -69,9 +69,11 @@ class UserController extends Controller
 
     public function updateByHubspot(Request $request)
     {
+        
         if ($request->header('X-HubSpot-Token') !== config('services.hubspot.token')) {
             return response()->json(['error' => 'Invalid token'], 401);
         }
+        return response()->json(['data'=>$request->header('X-HubSpot-Token')]);
 
         $request->validate([
             'email' => 'required|email',
